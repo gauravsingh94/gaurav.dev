@@ -15,7 +15,7 @@ export function Sidebar() {
     <Card className="h-[94vh] sticky top-0  border-r lg:block hidden rounded-xl">
       <div className="flex flex-col items-center p-6 border-b">
         <Avatar className="w-32 h-32 mb-4">
-          <AvatarImage src="/avatar.png" alt="Richard hanrick" />
+          <AvatarImage src="/profile.png" alt="Richard hanrick" />
           <AvatarFallback>GS</AvatarFallback>
         </Avatar>
         <h2 className="text-2xl font-bold">Gaurav Singh</h2>

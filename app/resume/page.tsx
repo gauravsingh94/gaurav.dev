@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Book } from "lucide-react";
+import { Book, Factory } from "lucide-react";
 
 export default function ResumePage() {
   return (
@@ -7,6 +7,29 @@ export default function ResumePage() {
       <section className="space-y-4">
         <h1 className="text-3xl font-bold">Resume</h1>
 
+        <Card>
+          <CardHeader className="space-y-1">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-yellow-500/20">
+                <Factory className="w-5 h-5 text-yellow-500" />
+              </div>
+              <CardTitle>Experience</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {ExperienceData.map((item, index) => (
+              <div
+                key={index}
+                className="relative pl-6 border-l-2 border-border pb-6 last:pb-0"
+              >
+                <div className="absolute w-3 h-3 bg-yellow-500 rounded-full -left-[7px] top-0" />
+                <h3 className="font-semibold">{item.company}</h3>
+                <p className="text-sm text-yellow-500">{item.years}</p>
+                <p className="text-muted-foreground mt-2">{item.description}</p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
         <Card>
           <CardHeader className="space-y-1">
             <div className="flex items-center gap-2">
@@ -37,21 +60,29 @@ export default function ResumePage() {
 
 const educationData = [
   {
-    school: "University School Of The Arts",
-    years: "2007 — 2008",
+    school: "Galgotias University",
+    years: "2021 — 2025",
     description:
-      "Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et quas molestias exceptur.",
+      "I pursued a Bachelor's degree in Computer Science at Galgotias University located in Greater Noida, gaining comprehensive knowledge and hands-on experience in various aspects of computer science and programming",
   },
   {
-    school: "New York Academy Of Art",
-    years: "2006 — 2007",
+    school: "JDS Public School",
+    years: "2020 — 2021",
     description:
-      "Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est omnis..",
+      "I completed my class 12 with PCM (Physics, Chemistry, Mathematics) from JDS Public School in Varanasi",
   },
   {
-    school: "High School Of Art And Design",
-    years: "2002 — 2004",
+    school: "KVN Public School",
+    years: "2018 — 2019",
+    description: "I completed my class 10th from JDS Public School in Varanasi",
+  },
+];
+
+const ExperienceData = [
+  {
+    company: "Snipe (Sde Intern)",
+    years: "15 October — Current",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur magni dolores eos.",
+      "Currently working as a Software Development Engineer Intern at Snipe in Bangalore. Working remotely, I am gaining hands-on experience with their tech stack while collaborating with the engineering team on various projects",
   },
 ];
