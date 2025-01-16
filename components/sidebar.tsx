@@ -15,7 +15,7 @@ export function Sidebar() {
   return (
     <Card className="h-[94vh] sticky top-0  border-r lg:block hidden rounded-xl">
       <div className="flex flex-col items-center p-6 border-b">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-transparent rounded-xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-transparent rounded-xl pointer-events-none" />
         <Avatar className="w-32 h-32 mb-4">
           <AvatarImage src="/profile.png" alt="Richard hanrick" />
           <AvatarFallback>GS</AvatarFallback>
@@ -44,7 +44,7 @@ export function Sidebar() {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 pt-4">
+        <div className="flex justify-center gap-2 pt-4 ">
           <a
             href="https://github.com/gauravsingh94"
             className="hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-10"
