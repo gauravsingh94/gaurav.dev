@@ -80,8 +80,8 @@ const organizations: Organization[] = [
 
 export default function OpenSourcePage() {
   return (
-    <div className="space-y-8">
-      <h1 className="lg:text-3xl text-xl font-bold">
+    <div className="space-y-8 max-w-[90%] md:max-w-[85%] lg:max-w-[100%] mx-auto">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
         Open Source Contributions
       </h1>
       <div className="space-y-6">
@@ -103,20 +103,22 @@ function OrganizationCard({
   const [isExpanded, setIsExpanded] = useState(index === 0);
 
   return (
-    <Card className="">
+    <Card>
       <CardHeader
-        className="cursor-pointer bg-purple-500/10 hover:bg-purple-500/20 transition-colors lg:max-w-full max-w-[24rem]"
+        className="cursor-pointer bg-purple-500/10 hover:bg-purple-500/20 transition-colors"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Github className="h-5 w-5" />
-            <span className="text-lg lg:text-xl">{organization.name}</span>
+            <Github className="h-4 md:h-5 w-4 md:w-5" />
+            <span className="text-base md:text-lg lg:text-xl">
+              {organization.name}
+            </span>
           </div>
           {isExpanded ? (
-            <ChevronUp className="h-5 w-5" />
+            <ChevronUp className="h-4 md:h-5 w-4 md:w-5" />
           ) : (
-            <ChevronDown className="h-5 w-5" />
+            <ChevronDown className="h-4 md:h-5 w-4 md:w-5" />
           )}
         </CardTitle>
       </CardHeader>
@@ -152,13 +154,13 @@ function ContributionItem({ contribution }: { contribution: Contribution }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="mb-6 last:mb-0 pl-6 contribution-item lg:max-w-full max-w-[24rem]"
+      className="mb-6 last:mb-0 pl-6 contribution-item"
     >
       <div className="space-y-2">
-        <h3 className="font-semibold lg:text-lg text-sm">
+        <h3 className="font-semibold text-sm md:text-base lg:text-lg">
           {contribution.title}
         </h3>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
           <Badge
             variant="outline"
             className="bg-green-500/10 text-green-600 hover:bg-green-500/20"
@@ -167,7 +169,7 @@ function ContributionItem({ contribution }: { contribution: Contribution }) {
           </Badge>
           <span>{contribution.date}</span>
         </div>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs md:text-sm text-muted-foreground">
           {contribution.description}
         </p>
         <Button variant="outline" size="sm" asChild>
