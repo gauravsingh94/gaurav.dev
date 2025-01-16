@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function BlogPage() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Blog</h1>
+      <h1 className="lg:text-3xl text-xl font-bold">Blog</h1>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.map((post, index) => (
           <Card
             key={index}
@@ -30,7 +30,9 @@ export default function BlogPage() {
                     <span>{post.date}</span>
                   </div>
                   <h2 className="text-xl font-semibold">{post.title}</h2>
-                  <p className="text-muted-foreground">{post.excerpt}</p>
+                  <p className="text-muted-foreground lg:text-sm text-xs">
+                    {post.excerpt}
+                  </p>
                 </div>
               </CardHeader>
             </Link>

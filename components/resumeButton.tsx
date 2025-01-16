@@ -15,7 +15,11 @@ export function AnimatedResumeButton() {
       onMouseLeave={() => setIsHovered(false)}
       asChild
     >
-      <a href="/resume.pdf" download>
+      <a
+        href="https://drive.google.com/file/d/1Meb2WruvaSn3lrjjJc1iVcLDqS058P0M/view"
+        target="_blank"
+        download
+      >
         <motion.div
           className="absolute inset-0 bg-purple-400"
           initial={false}
@@ -44,7 +48,7 @@ export function AnimatedResumeButton() {
           }}
           transition={{ duration: 0.4 }}
         >
-          Download PDF
+          Google Drive Link
         </motion.div>
       </a>
     </Button>

@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <div className="space-y-8 border p-6 w-full rounded-xl">
       <section className="space-y-4">
-        <h1 className="text-3xl font-bold">About Me</h1>
+        <h1 className="lg:text-3xl text-xl font-bold">About Me</h1>
         <div className="text-muted-foreground space-y-4">
           <p>
             My name is Gaurav Singh. I am a full-stack web developer capable of

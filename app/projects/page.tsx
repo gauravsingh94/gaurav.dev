@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function PortfolioPage() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Projects</h1>
+      <h1 className="lg:text-3xl text-xl font-bold">Projects</h1>
 
       {/* <TabsList>
         <TabsTrigger value="all">All</TabsTrigger>

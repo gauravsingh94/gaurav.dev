@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ContactPage() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Contact</h1>
+      <h1 className="lg:text-3xl text-xl font-bold">Contact</h1>
 
       <div className="space-y-6">
         <Card>

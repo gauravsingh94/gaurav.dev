@@ -81,7 +81,9 @@ const organizations: Organization[] = [
 export default function OpenSourcePage() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold">Open Source Contributions</h1>
+      <h1 className="lg:text-3xl text-xl font-bold">
+        Open Source Contributions
+      </h1>
       <div className="space-y-6">
         {organizations.map((org, index) => (
           <OrganizationCard key={index} organization={org} index={index} />
@@ -101,15 +103,15 @@ function OrganizationCard({
   const [isExpanded, setIsExpanded] = useState(index === 0);
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="">
       <CardHeader
-        className="cursor-pointer bg-purple-500/10 hover:bg-purple-500/20 transition-colors"
+        className="cursor-pointer bg-purple-500/10 hover:bg-purple-500/20 transition-colors lg:max-w-full max-w-[24rem]"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Github className="h-5 w-5" />
-            <span>{organization.name}</span>
+            <span className="text-lg lg:text-xl">{organization.name}</span>
           </div>
           {isExpanded ? (
             <ChevronUp className="h-5 w-5" />
@@ -150,10 +152,12 @@ function ContributionItem({ contribution }: { contribution: Contribution }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="mb-6 last:mb-0 pl-6 contribution-item"
+      className="mb-6 last:mb-0 pl-6 contribution-item lg:max-w-full max-w-[24rem]"
     >
       <div className="space-y-2">
-        <h3 className="font-semibold text-lg">{contribution.title}</h3>
+        <h3 className="font-semibold lg:text-lg text-sm">
+          {contribution.title}
+        </h3>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Badge
             variant="outline"

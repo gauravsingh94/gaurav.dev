@@ -39,7 +39,7 @@ const skills = [
 export default function SkillsPage() {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold gradient-text">My Skills</h1>
+      <h1 className="lg:text-3xl text-xl font-bold gradient-text">My Skills</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {skills.map((skill, index) => (
           <SkillCard key={skill.name} skill={skill} index={index} />
@@ -69,7 +69,7 @@ function SkillCard({
               className="w-12 h-12 mb-3"
               style={{ color: skill.color }}
             />
-            <h3 className="text-lg font-semibold text-purple-100">
+            <h3 className="lg:text-lg text-sm font-semibold text-purple-100">
               {skill.name}
             </h3>
           </div>
