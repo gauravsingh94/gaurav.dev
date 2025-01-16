@@ -23,7 +23,7 @@ export function Navigation() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="sticky top-0 z-10 border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-xl ml-4">
+    <nav className="sticky top-0 z-10 border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-xl lg:ml-4">
       <div className="absolute rounded-xl inset-0 bg-gradient-to-b from-purple-500/20 to-transparent" />
       <div className="flex h-16 items-center px-6 justify-between">
         <div
