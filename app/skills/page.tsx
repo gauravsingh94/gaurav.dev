@@ -40,7 +40,7 @@ export default function SkillsPage() {
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold gradient-text">My Skills</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {skills.map((skill, index) => (
           <SkillCard key={skill.name} skill={skill} index={index} />
         ))}
@@ -64,16 +64,14 @@ function SkillCard({
     >
       <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-purple-900/50 to-gray-900/50 backdrop-blur-sm border-purple-500/20">
         <CardContent className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-3">
-              <skill.icon className="w-8 h-8" style={{ color: skill.color }} />
-              <h3 className="text-lg font-semibold text-purple-100">
-                {skill.name}
-              </h3>
-            </div>
-            <span className="text-sm font-medium text-purple-300">
-              {skill.progress}%
-            </span>
+          <div className="flex flex-col items-center justify-center">
+            <skill.icon
+              className="w-12 h-12 mb-3"
+              style={{ color: skill.color }}
+            />
+            <h3 className="text-lg font-semibold text-purple-100">
+              {skill.name}
+            </h3>
           </div>
           {/* <Progress value={skill.progress} className="h-2 bg-purple-950" indicatorClassName="bg-gradient-to-r from-purple-500 to-pink-500" /> */}
         </CardContent>
