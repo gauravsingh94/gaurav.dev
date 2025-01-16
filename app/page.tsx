@@ -1,90 +1,177 @@
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Database, Globe, Pencil } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ChevronUp, Github, GitPullRequest } from "lucide-react";
+import { useState } from "react";
+import "./styles.css";
 
-export default function AboutPage() {
+interface Contribution {
+  title: string;
+  prNumber: number;
+  date: string;
+  description: string;
+  url: string;
+}
+
+interface Organization {
+  name: string;
+  url: string;
+  contributions: Contribution[];
+}
+
+const organizations: Organization[] = [
+  {
+    name: "processing/p5.js-web-editor",
+    url: "https://github.com/processing/p5.js-web-editor",
+    contributions: [
+      {
+        title: "Issue-#2923 added test for the Account Form.",
+        prNumber: 2955,
+        date: "2024-08-14",
+        description:
+          "I have added the test for Account from please review it. if these test feel good to you then i started to write for the other component as well.",
+        url: "https://github.com/processing/p5.js-web-editor/pull/2955",
+      },
+      {
+        title: "Fixes #2653, No Validation for sketch file rename ",
+        prNumber: 2656,
+        date: "2024-07-03",
+        description:
+          "Fixed validation for sketch file rename now it take only 100 characters as input.",
+        url: "https://github.com/processing/p5.js-web-editor/pull/2656",
+      },
+    ],
+  },
+  {
+    name: "PalisadoesFoundation/talawa-admin",
+    url: "https://github.com/PalisadoesFoundation",
+    contributions: [
+      {
+        title:
+          "Fixed Issue #1285: Inconsistent character limit during organization creation.",
+        prNumber: 1321,
+        date: "2024-12-31",
+        description:
+          "Now we can enter only 50 character for the organization name and 200 for the organization description and location.",
+        url: "https://github.com/PalisadoesFoundation/talawa-admin/pull/1321",
+      },
+      {
+        title:
+          "Fixed-Issue-#1307 User Dropdown in Navbar Not Redirecting Properly.",
+        prNumber: 1313,
+        date: "2024-12-29",
+        description: "Fixed the Dropdown in Navbar Not Redirecting Properly.",
+        url: "https://github.com/PalisadoesFoundation/talawa-admin/pull/1313",
+      },
+      {
+        title:
+          "Fixed-Issue-#1259 Keeping the message in design when no posts is found.",
+        prNumber: 1265,
+        date: "2024-12-24",
+        description: "Added some css to make the design uniform.",
+        url: "https://github.com/PalisadoesFoundation/talawa-admin/pull/1265",
+      },
+    ],
+  },
+];
+
+export default function OpenSourcePage() {
   return (
-    <div className="space-y-8 border p-6 w-full rounded-xl">
-      <section className="space-y-4">
-        <h1 className="text-3xl font-bold">About Me</h1>
-        <div className="text-muted-foreground space-y-4">
-          <p>
-            My name is Gaurav Singh. I am a full-stack web developer capable of
-            building complex websites from scratch and deploying them. I love
-            creating projects and enjoy turning complex problems into simple,
-            beautiful, and intuitive designs.
-          </p>
-          <p>
-            My job is to build your website so that it is functional and
-            user-friendly but at the same time attractive. Moreover, I add
-            personal touch to your product and make sure that is eye-catching
-            and easy to use. My aim is to bring across your message and identity
-            in the most creative way.
-          </p>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">What I'm Doing</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <Card>
-            <CardHeader className="space-y-1">
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-yellow-500/20">
-                <Pencil className="w-5 h-5 text-yellow-500" />
-              </div>
-              <CardTitle>Web Design</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                The most modern and high-quality design made at a professional
-                level.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="space-y-1">
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-yellow-500/20">
-                <Code className="w-5 h-5 text-yellow-500" />
-              </div>
-              <CardTitle>Web Development</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                High-quality development of sites at the professional level.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="space-y-1">
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-yellow-500/20">
-                <Database className="w-5 h-5 text-yellow-500" />
-              </div>
-              <CardTitle>Backend Development</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Professional development of server-side applications and APIs.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="space-y-1">
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-yellow-500/20">
-                <Globe className="w-5 h-5 text-yellow-500" />
-              </div>
-              <CardTitle>Open Source</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                I love contributing to open source projects and participating in
-                the developer community.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+    <div className="space-y-8">
+      <h1 className="text-3xl font-bold">Open Source Contributions</h1>
+      <div className="space-y-6">
+        {organizations.map((org, index) => (
+          <OrganizationCard key={index} organization={org} index={index} />
+        ))}
+      </div>
     </div>
+  );
+}
+
+function OrganizationCard({
+  organization,
+  index,
+}: {
+  organization: Organization;
+  index: number;
+}) {
+  const [isExpanded, setIsExpanded] = useState(index === 0);
+
+  return (
+    <Card className="overflow-hidden">
+      <CardHeader
+        className="cursor-pointer bg-purple-500/10 hover:bg-purple-500/20 transition-colors"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Github className="h-5 w-5" />
+            <span>{organization.name}</span>
+          </div>
+          {isExpanded ? (
+            <ChevronUp className="h-5 w-5" />
+          ) : (
+            <ChevronDown className="h-5 w-5" />
+          )}
+        </CardTitle>
+      </CardHeader>
+      <AnimatePresence initial={false}>
+        {isExpanded && (
+          <motion.div
+            initial="collapsed"
+            animate="expanded"
+            exit="collapsed"
+            variants={{
+              expanded: { opacity: 1, height: "auto" },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <CardContent className="pt-4">
+              <div className="relative contribution-timeline">
+                {organization.contributions.map((contribution, index) => (
+                  <ContributionItem key={index} contribution={contribution} />
+                ))}
+              </div>
+            </CardContent>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Card>
+  );
+}
+
+function ContributionItem({ contribution }: { contribution: Contribution }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="mb-6 last:mb-0 pl-6 contribution-item"
+    >
+      <div className="space-y-2">
+        <h3 className="font-semibold text-lg">{contribution.title}</h3>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Badge
+            variant="outline"
+            className="bg-green-500/10 text-green-600 hover:bg-green-500/20"
+          >
+            <GitPullRequest className="h-3 w-3 mr-1" />#{contribution.prNumber}
+          </Badge>
+          <span>{contribution.date}</span>
+        </div>
+        <p className="text-sm text-muted-foreground">
+          {contribution.description}
+        </p>
+        <Button variant="outline" size="sm" asChild>
+          <a href={contribution.url} target="_blank" rel="noopener noreferrer">
+            View Pull Request
+          </a>
+        </Button>
+      </div>
+    </motion.div>
   );
 }

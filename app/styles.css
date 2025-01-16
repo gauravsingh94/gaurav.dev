@@ -1,0 +1,21 @@
+.contribution-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #e879f9, transparent);
+}
+
+.contribution-item::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e879f9;
+    box-shadow: 0 0 0 3px rgba(232, 121, 249, 0.2);
+}

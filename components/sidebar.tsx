@@ -9,11 +9,13 @@ import {
   Phone,
   Twitter,
 } from "lucide-react";
+import { AnimatedResumeButton } from "./resumeButton";
 
 export function Sidebar() {
   return (
     <Card className="h-[94vh] sticky top-0  border-r lg:block hidden rounded-xl">
       <div className="flex flex-col items-center p-6 border-b">
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-transparent rounded-xl" />
         <Avatar className="w-32 h-32 mb-4">
           <AvatarImage src="/profile.png" alt="Richard hanrick" />
           <AvatarFallback>GS</AvatarFallback>
@@ -25,19 +27,19 @@ export function Sidebar() {
       <div className="p-6 space-y-4">
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm">
-            <Mail className="w-4 h-4 text-yellow-500" />
+            <Mail className="w-4 h-4 text-purple-500" />
             <span>gauravrajputsingh94@gmail.com</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <Phone className="w-4 h-4 text-yellow-500" />
+            <Phone className="w-4 h-4 text-purple-500" />
             <span>+91 8887924382</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <Calendar className="w-4 h-4 text-yellow-500" />
+            <Calendar className="w-4 h-4 text-purple-500" />
             <span>01 July, 2004</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <MapPin className="w-4 h-4 text-yellow-500" />
+            <MapPin className="w-4 h-4 text-purple-500" />
             <span>Uttra Pradesh, India</span>
           </div>
         </div>
@@ -62,6 +64,9 @@ export function Sidebar() {
             <Linkedin className="w-4 h-4" />
           </a>
         </div>
+      </div>
+      <div className="px-6 pb-6">
+        <AnimatedResumeButton />
       </div>
     </Card>
   );
